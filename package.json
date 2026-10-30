@@ -1,0 +1,34 @@
+{
+  "name": "dsh-clanker-bridge",
+  "version": "0.1.0",
+  "description": "Connect Clanker on your phone to Harness Desktop, with streamed agent replies, controls and file transfer.",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.mjs",
+  "exports": { ".": "./src/index.mjs" },
+  "files": ["src", "cordis.patch.yml", "README.md", "LICENSE", "CHANGELOG.md"],
+  "repository": { "type": "git", "url": "https://github.com/DANIE4588E/dsh-clanker-bridge.git" },
+  "homepage": "https://github.com/DANIE4588E/dsh-clanker-bridge#readme",
+  "bugs": { "url": "https://github.com/DANIE4588E/dsh-clanker-bridge/issues" },
+  "keywords": ["dsh-plugin", "deepseek-harness", "clanker", "mobile", "remote", "files"],
+  "engines": { "node": ">=24.9.0", "dsh": "0.2.1-rc.5" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "scripts": {
+    "check": "node --check src/index.mjs && node --check src/pairing.mjs && node --check src/bridge/server.mjs && node --check src/bridge/harness.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@deepseek-ai/cordis": "4.0.5",
+    "@deepseek-ai/dsh-api-gateway": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-api-remotes": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-api-session-controller": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-client-connection": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-home-paths": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-llm": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-scope": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-typert-registry": "0.2.1-rc.5",
+    "@deepseek-ai/schemastery": "3.18.5",
+    "ws": "8.22.0"
+  },
+  "overrides": { "zod": "4.6.6" }
+}
